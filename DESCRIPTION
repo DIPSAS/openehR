@@ -1,0 +1,18 @@
+Package: ROpenEHR
+Type: Package
+Title: ROpenEHR
+Version: 0.0.1
+Author: S. Falkflaug, F. Bentzen, C. Olsen, A. Sølvberg
+Maintainer: Christer Olsen <chol@dips.no>
+Description: ROpenEHR is a simple openEHR endpoint interface intended
+    to make results of AQL queries against a chosen openEHR-endpoint 
+    available as data frame.
+License: 
+Encoding: UTF-8
+LazyData: true
+Imports:
+  httr,
+  jsonlite
+Suggests:
+  testthat,
+  devtools
