@@ -1,6 +1,4 @@
-source("../../R/ROpenEHR.R", chdir = TRUE)
-library(testthat)
-library(httr)
+context("Test aqlquery")
 
 test_that("query_validRequest_returnsDataFrame ", {
   aql <- "SELECT

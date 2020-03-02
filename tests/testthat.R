@@ -1,4 +1,3 @@
 library(testthat)
-library(ROpenEHR)
 
-test_dir("tests/testthat/")
+test_check("ROpenEHR")

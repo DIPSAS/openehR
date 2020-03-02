@@ -7,7 +7,7 @@ Maintainer: Christer Olsen <chol@dips.no>
 Description: ROpenEHR is a simple openEHR endpoint interface intended
     to make results of AQL queries against a chosen openEHR-endpoint 
     available as data frame.
-License: 
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:

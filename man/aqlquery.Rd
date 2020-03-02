@@ -2,7 +2,12 @@
 \alias{aqlquery}
 \title{aqlquery}
 \usage{
-response <- aqlquery(OpenEHRurl, query)
+aqlquery(OpenEHRurl, query)
+}
+\arguments{
+  \item{OpenEHRurl}{OpenEHR endpoint}
+
+  \item{query}{AQL query}
 }
 \description{
 A simple openEHR endpoint interface intended
