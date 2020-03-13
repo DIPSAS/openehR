@@ -1,16 +1,16 @@
-\name{aqlquery}
-\alias{aqlquery}
-\title{aqlquery}
+\name{query}
+\alias{query}
+\title{query}
 \usage{
-aqlquery(OpenEHRurl, query)
+query(url, query)
 }
 \arguments{
-  \item{OpenEHRurl}{OpenEHR endpoint}
+  \item{url}{OpenEHR url}
 
   \item{query}{AQL query}
 }
 \description{
 A simple openEHR endpoint interface intended
-to make results of AQL queries against a chosen openEHR-endpoint 
+to make results of AQL queries against a chosen openEHR-endpoint
 available as data frame.
 }

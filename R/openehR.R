@@ -1,14 +1,26 @@
 library(httr)
 library(jsonlite)
 
-aqlquery <- function(OpenEHRurl, query) {
-  url = paste0(OpenEHRurl, "/openehr/v1/query/aql/")
+query <- function(url, query) {
+  if(!endsWith(url, "/")) {
+    url = paste0(url, "/")
+  }
+
+  url = paste0(url, "query/aql/")
+
   response <- POST(url = url, body = list(q = query), encode = "json")
 
   if(http_error(response)){
     return(response)
   } else {
-    content <- content(response, as = "text")
+    content <- content(response, as = "raw")
+
+    if (content[1]==as.raw(0xef) & content[2]==as.raw(0xbb) & content[3]==as.raw(0xbf)) {
+      content = rawToChar(content[-(1:3)])
+    } else {
+      content = rawToChar(content)
+    }
+
     resultSet <- fromJSON(content)
 
     #Create data frame

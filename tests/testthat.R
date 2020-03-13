@@ -1,3 +1,3 @@
 library(testthat)
 
-test_check("ROpenEHR")
+test_check("openehR")

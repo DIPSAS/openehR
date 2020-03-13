@@ -1,5 +1,3 @@
-context("Test aqlquery")
-
 test_that("query_validRequest_returnsDataFrame ", {
   aql <- "SELECT
  c/archetype_details/archetype_id/value as sourcearchetype,
@@ -17,21 +15,20 @@ test_that("query_validRequest_returnsDataFrame ", {
  c/content[openEHR-EHR-ADMIN_ENTRY.vedtak_om_overforing_til_annen_institusjon.v1]/data[at0001]/items[at0014]/value/value as iverksettingOverforing_tekst
 FROM COMPOSITION c"
 
-  response <- aqlquery("https://vt-tb-a-f-2.dips.local:4443", aql)
+  response <- query("https://vt-tb-a-f-2.dips.local:4443/openehr/v1", aql)
 
   expect_equal(class(response), "data.frame")
 })
 
-test_that("aqlquery_fakeurl_returnsError", {
-  expect_error(aqlquery("https://ABC123svt-tb-a-f-2.dips.local:4443", "123"), "Could not resolve host: ABC123svt-tb-a-f-2.dips.local")
+test_that("query_fakeurl_returnsError", {
+  expect_error(
+    query("https://ABC123svt-tb-a-f-2.dips.local:4443/openehr/v1", "123"),
+    "Could not resolve host: ABC123svt-tb-a-f-2.dips.local"
+  )
 })
 
 test_that("query_notFound_returnsHTTPResponseWithStatusCode404", {
-  response <- aqlquery("https://vt-tb-a-f-2.dips.local:4443/abc", "123")
+  response <-
+    query("https://vt-tb-a-f-2.dips.local:4443/abc", "123")
   expect_true(status_code(response) == "404")
 })
-
-
-
-
-
