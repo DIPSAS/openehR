@@ -1,7 +1,7 @@
 Package: openehR
 Type: Package
 Title: openehR
-Version: 0.0.1
+Version: 0.0.2
 Author: S. Falkflaug, F. Bentzen, C. Olsen, A. Sølvberg
 Maintainer: Christer Olsen <chol@dips.no>, Fredrik Bentzen <frbe@dips.no>
 Description: openehR is a simple openEHR endpoint interface intended

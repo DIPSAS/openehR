@@ -1,14 +1,14 @@
 library(httr)
 library(jsonlite)
 
-query <- function(url, query) {
+query <- function(url, query, config = list()) {
   if(!endsWith(url, "/")) {
     url = paste0(url, "/")
   }
 
   url = paste0(url, "query/aql/")
 
-  response <- POST(url = url, body = list(q = query), encode = "json")
+  response <- POST(url = url, body = list(q = query), encode = "json", config = config)
 
   if(http_error(response)){
     return(response)

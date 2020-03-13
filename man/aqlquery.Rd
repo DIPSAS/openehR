@@ -2,12 +2,12 @@
 \alias{query}
 \title{query}
 \usage{
-query(url, query)
+query(url, query, config = list())
 }
 \arguments{
   \item{url}{OpenEHR url}
-
   \item{query}{AQL query}
+  \item{config}{Config}
 }
 \description{
 A simple openEHR endpoint interface intended
