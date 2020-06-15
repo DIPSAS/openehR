@@ -2,18 +2,20 @@ Package: openehR
 Type: Package
 Title: openehR
 Version: 0.0.3
-Author: S. Falkflaug, F. Bentzen, C. Olsen, A. Sølvberg
-Maintainer: Christer Olsen <chol@dips.no>, Fredrik Bentzen <frbe@dips.no>
-Description: openehR is a simple openEHR endpoint interface intended
-    to make results of AQL queries against a chosen openEHR-endpoint 
-    available as data frame.
+Author: Steinar Falkflaug, Fredrik Bentzen, Christer Olsen, Adrian Sølvberg,
+  Bjørn Fjukstad
+Maintainer: Christer Olsen <chol@dips.no>, Fredrik Bentzen <frbe@dips.no>,
+  Bjørn Fjukstad <bfj@dips.no>
+Description: openehR is a small package for retrieving data form an openEHR 
+  server through its openEHR REST API
 Depends: R (>= 3.6.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
   httr,
-  jsonlite
+  jsonlite,
+  xml2
 Suggests:
   testthat,
   devtools

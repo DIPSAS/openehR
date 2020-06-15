@@ -1,22 +1,41 @@
 # openehR
-openehR is a simple *openEHR* endpoint interface intended to make results of AQL queries against a chosen openEHR-endpoint available as data frame.
+openehR is an R package for retrieving data from an openEHR server using the
+[openEHR REST API](https://specifications.openehr.org/releases/ITS-REST/Release-1.0.1/). 
 
-### Usage
-To use openehR, simply install and import it to your R script.
+# Usage
+To use openehR, simply install it with 
 
-**Example of usage:**
 ```
-query <- "select
-    c/composer/name as composer,
-    c/uid/value as uid, 
+devtools::install_github('dipsas/openehR')
+```
+
+and use it in your R scripts like so
+
+```R
+
+query <- "
+select
     c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/time/value as datetime,
-    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/units AS unit,
-    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude AS magnitude 
+    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude AS systolic,
+    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/magnitude AS diastolic
 from
     composition c
     contains observation o[openEHR-EHR-OBSERVATION.blood_pressure.v1]
 "
-url = "https://vt-lab7-ehr01.testlab.local:4443/openehr/v1" 
-response <- query(url, query)
+
+url = "https://openEHR-server/openehr/v1" 
+data <- openehR::query(url, query)
+
+head(data)
+
+# datetime			systolic		diastolic
+# 1974-09-16T16:04:10.192+02:00	115.974085828937	76.9071249676342
+# 2010-06-23T05:48:49.751+02:00	117.079215488876	72.4198362220667
+# 2010-06-26T05:15:34.312+02:00	132.302621087754	73.1356662638138
+# 2009-10-10T03:22:05.666+02:00	123.306499231151	76.388229647742
+# 2010-07-07T00:21:22.182+02:00	128.873904091379	75.7725081884796
+# 2010-10-17T05:50:07.97+02:00	112.089627114461	83.3618799992845
+
 ```
-The response from each query will be availabe as a data frame if the query is successful, otherwise the response will be the response object returned by the provided endpoint.
+
+
