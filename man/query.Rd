@@ -7,9 +7,11 @@
 query(url, query, config = list(), ...)
 }
 \arguments{
-\item{url}{The url of the openEHR server including the openEHR REST API endpoint}
+\item{url}{The url of the openEHR server including the openEHR REST API
+endpoint}
 
-\item{query}{The AQL query}
+\item{query}{The AQL query. Newlines and unnecessary whitespaces are stripped
+from the query before posting on an openEHR server.}
 
 \item{config}{Optional config to the `httr` package.  (optional)}
 

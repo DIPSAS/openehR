@@ -15,7 +15,8 @@ LazyData: true
 Imports:
   httr,
   jsonlite,
-  xml2
+  xml2,
+  stringr
 Suggests:
   testthat,
   devtools

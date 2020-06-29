@@ -1,6 +1,9 @@
 #' Execute an AQL query on the specified openEHR server.
-#'@param url The url of the openEHR server including the openEHR REST API endpoint
-#'@param query The AQL query
+#'@export
+#'@param url The url of the openEHR server including the openEHR REST API
+#'  endpoint
+#'@param query The AQL query. Newlines and unnecessary whitespaces are stripped
+#'  from the query before posting on an openEHR server.
 #'@param config Optional config to the `httr` package.  (optional)
 #'@param ... additional configuration settings
 #'@return the result from the executed query
@@ -30,16 +33,23 @@ query <-
            query,
            config = list(),
            ...) {
+
     if (!endsWith(url, "/")) {
       url = paste0(url, "/")
     }
+
+    # Remove any newlines
+    stripped_query = stringr::str_remove_all(query, "\n")
+
+    # Remove any unnecessary whitespaces
+    stripped_query = stringr::str_squish(stripped_query)
 
     url = paste0(url, "query/aql")
 
     response <-
       httr::POST(
         url = url,
-        body = list(q = query),
+        body = list(q = stripped_query),
         encode = "json",
         config = config,
         ...
