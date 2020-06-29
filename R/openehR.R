@@ -13,16 +13,16 @@
 #'      "select c/name/value from composition c limit 5")
 #'query("http://localhost:8080/openehr/v1",
 #'      "select c/name/value from composition c limit 5",
-#'      httr::add_headers=c("name" = "value"))
+#'      httr::add_headers(c("name" = "value")))
 #'query("http://localhost:8080/openehr/v1",
 #'      "select c/name/value from composition c limit 5",
-#'      httr::set_cookies=c(a = 1))
+#'      httr::set_cookies(c(a = 1)))
 #'query("http://localhost:8080/openehr/v1",
 #'      "select c/name/value from composition c limit 5",
 #'      httr::authenticate("username", "password"))
 #'query("http://localhost:8080/openehr/v1",
 #'      "select c/name/value from composition c limit 5",
-#'      httr::add_headers=c("name" = "value"),
+#'      httr::add_headers(c("name" = "value")),
 #'      httr::authenticate("username", "password"))
 #'query("http://localhost:8080/openehr/v1",
 #'      "select c/name/value from composition c limit 5",
