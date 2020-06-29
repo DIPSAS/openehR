@@ -9,7 +9,7 @@ Maintainer: Christer Olsen <chol@dips.no>, Fredrik Bentzen <frbe@dips.no>,
 Description: openehR is a small package for retrieving data form an openEHR 
   server through its openEHR REST API
 Depends: R (>= 3.6.0)
-License: GPL-3
+License: MIT
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -19,3 +19,4 @@ Imports:
 Suggests:
   testthat,
   devtools
+RoxygenNote: 7.1.0

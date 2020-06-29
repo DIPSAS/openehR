@@ -15,12 +15,12 @@ and use it in your R scripts like so
 
 query <- "
 select
-    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/time/value as datetime,
-    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude AS systolic,
-    c/content[openEHR-EHR-OBSERVATION.blood_pressure.v1]/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/magnitude AS diastolic
+    o/data[at0001]/events[at0006]/time/value as datetime,
+    o/data[at0001]/events[at0006]/data[at0003]/items[at0004]/value/magnitude AS systolic,
+    o/data[at0001]/events[at0006]/data[at0003]/items[at0005]/value/magnitude AS diastolic
 from
     composition c
-    contains observation o[openEHR-EHR-OBSERVATION.blood_pressure.v1]
+        contains observation o[openEHR-EHR-OBSERVATION.blood_pressure.v1]
 "
 
 url = "https://openEHR-server/openehr/v1" 
@@ -37,5 +37,9 @@ head(data)
 # 2010-10-17T05:50:07.97+02:00	112.089627114461	83.3618799992845
 
 ```
+
+# Help
+You can view the documentation and help pages by running `?openehR` in your R
+interpreter.
 
 
