@@ -6,7 +6,5 @@ test_that("query_fakeurl_returnsError", {
 })
 
 test_that("query_notFound_returnsHTTPResponseWithStatusCode404", {
-  response <-
-    query("https://vt-tb-a-f-2.dips.local:4443/abc", "123")
-  expect_true(status_code(response) == "404")
+  expect_error(query("https://vt-tb-a-f-2.dips.local:4443/abc", "123"))
 })
