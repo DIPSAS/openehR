@@ -39,7 +39,7 @@ query <-
     }
 
     # Remove any newlines
-    stripped_query = stringr::str_remove_all(query, "\n")
+    stripped_query = stringr::str_replace_all(query, "\n", " ")
 
     # Remove any unnecessary whitespaces
     stripped_query = stringr::str_squish(stripped_query)
