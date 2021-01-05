@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: openehR
+  description: |
+    openehR is an R package for retrieving data from an openEHR server using its REST API.
+  annotations:
+    github.com/project-slug: DIPSAS/openehR
+    github.com/user-login: fjukstad
+spec:
+  type: library
+  owner: fjukstad
+  lifecycle: experimental
